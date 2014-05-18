@@ -1152,7 +1152,7 @@ static OAES_RET oaes_decrypt_block(
 #endif // OAES_DEBUG
 
 		// AddRoundKey(state, w[round*Nb, (round+1)*Nb-1])
-		#pragma parallel
+		//#pragma parallel
 		for( _j = 0; _j < c_len; _j++ )
 			c[_j] = c[_j] ^
 					_ctx->key->exp_data[_i * OAES_RKEY_LEN * OAES_COL_LEN + _j];
@@ -1197,7 +1197,7 @@ static OAES_RET oaes_decrypt_block(
 #endif // OAES_DEBUG
 
 	// AddRoundKey(state, w[0, Nb-1])
-	#pragma parallel
+	//#pragma parallel
 	for( _i = 0; _i < c_len; _i++ )
 		c[_i] = c[_i] ^ _ctx->key->exp_data[_i];
 	
